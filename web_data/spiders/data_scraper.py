@@ -1,4 +1,5 @@
 import scrapy
+from scrapy.http.request import Request
 import re
 from lxml import html
 from web_data.items import WebDataItem
@@ -6,24 +7,13 @@ from web_data.items import WebDataItem
 class DataScraperSpider(scrapy.Spider):
     name = "data_scraper"
     allowed_domains = ["business.site"]
-    start_urls = ["https://cafe-new-york-best-healthy-food-restaurants-in-moga.business.site/",
-                   "https://new-york-tailors-cloth-house.business.site/",
-                   "https://lhasa-tibetan-restaurant.business.site/",
-                   "https://new-york-gents-grooming.business.site/",
-                   "https://casa-adela-puerto-rican-restaurant.business.site/",
-                   "https://newyorkbarbershop.business.site/",
-                   "https://captains-bar-and-grill-new-york-ny.business.site/",
-                   "https://styles-of-new-york.business.site/",
-                   "https://new-york-slice-meerut.business.site/",
-                   "https://hotel-new-york-home-delivery-restaurant.business.site/",
-                   "https://beekmanliquor.business.site/",
-                   "https://nyc-cafe-bakery-siliguri.business.site/",
-                   "https://new-york-chicken-and-grill-halal.business.site/"
-                ]
+    start_urls = []
 
-    # def parse(self, response):
-    #     for link in self.start_urls:
-    #         yield scrapy.Request(link, callback=self.extract_data, dont_filter=True)
+    def start_requests(self):
+        with open("urls.txt", 'r') as urls_file:
+            all_urls = urls_file.readlines()
+            for each_url in all_urls:
+                yield Request(each_url, callback=self.parse)
         
     def parse(self, response):
         # link
