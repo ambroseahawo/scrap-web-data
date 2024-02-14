@@ -154,19 +154,6 @@ class DataScraperSpider(scrapy.Spider):
         item['business_hours'] = business_days_hours
         
         item['site'] = response.url
-        self.scrapped_urls.append(response.url)
-        
-        # yield item
-        
-        # update missing links
-        # if response.url == self.start_urls[-1]:
-        #     if self.start_urls:
-        #         for each_link in self.start_urls:
-        #             if each_link in self.scrapped_urls:
-        #                 self.start_urls.remove(each_link)
-        #         if self.start_urls:
-        #             self.log("REM!!")
-        #             self.parse(response=response)
         
         yield item
         

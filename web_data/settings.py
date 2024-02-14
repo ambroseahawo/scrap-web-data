@@ -12,12 +12,14 @@ BOT_NAME = "web_data"
 SPIDER_MODULES = ["web_data.spiders"]
 NEWSPIDER_MODULE = "web_data.spiders"
 
-SCRAPEOPS_API_KEY = ''
+SCRAPEOPS_API_KEY = '7afe70c3-a38a-46e9-a212-522039ce53ad'
+SCRAPEOPS_PROXY_ENABLED = True
+
 SCRAPEOPS_FAKE_USER_AGENT_ENDPOINT = 'https://headers.scrapeops.io/v1/user-agents'
 SCRAPEOPS_FAKE_USER_AGENT_ENABLED = True
 
 SCRAPEOPS_SETTINGS_EXCLUSION_LIST = [
-    'API_KEY'
+    'API_KEY', 'SCRAPEOPS_API_KEY'
 ]
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
@@ -70,6 +72,8 @@ DOWNLOADER_MIDDLEWARES = {
     'scrapeops_scrapy.middleware.retry.RetryMiddleware': 550,
     'web_data.middlewares.ScrapeOpsFakeBrowserHeaderAgentMiddleware': 400,
     'scrapy.downloadermiddlewares.retry.RetryMiddleware': None,
+    ## Proxy Middleware
+    'scrapeops_scrapy_proxy_sdk.scrapeops_scrapy_proxy_sdk.ScrapeOpsScrapyProxySdk': 725,
 }
 
 # Enable or disable extensions
