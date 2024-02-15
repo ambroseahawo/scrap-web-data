@@ -73,7 +73,7 @@ DOWNLOADER_MIDDLEWARES = {
     'web_data.middlewares.ScrapeOpsFakeBrowserHeaderAgentMiddleware': 400,
     'scrapy.downloadermiddlewares.retry.RetryMiddleware': None,
     ## Proxy Middleware
-    'scrapeops_scrapy_proxy_sdk.scrapeops_scrapy_proxy_sdk.ScrapeOpsScrapyProxySdk': 725,
+    # 'scrapeops_scrapy_proxy_sdk.scrapeops_scrapy_proxy_sdk.ScrapeOpsScrapyProxySdk': 725,
 }
 
 # Enable or disable extensions
