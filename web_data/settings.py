@@ -12,7 +12,7 @@ BOT_NAME = "web_data"
 SPIDER_MODULES = ["web_data.spiders"]
 NEWSPIDER_MODULE = "web_data.spiders"
 
-SCRAPEOPS_API_KEY = ''
+SCRAPEOPS_API_KEY = '7afe70c3-a38a-46e9-a212-522039ce53ad'
 SCRAPEOPS_PROXY_ENABLED = True
 
 SCRAPEOPS_FAKE_USER_AGENT_ENDPOINT = 'https://headers.scrapeops.io/v1/user-agents'
@@ -29,7 +29,7 @@ SCRAPEOPS_SETTINGS_EXCLUSION_LIST = [
 ROBOTSTXT_OBEY = True
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-CONCURRENT_REQUESTS = 32
+# CONCURRENT_REQUESTS = 32
 
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
@@ -73,7 +73,7 @@ DOWNLOADER_MIDDLEWARES = {
     'web_data.middlewares.ScrapeOpsFakeBrowserHeaderAgentMiddleware': 400,
     'scrapy.downloadermiddlewares.retry.RetryMiddleware': None,
     ## Proxy Middleware
-    # 'scrapeops_scrapy_proxy_sdk.scrapeops_scrapy_proxy_sdk.ScrapeOpsScrapyProxySdk': 725,
+    'scrapeops_scrapy_proxy_sdk.scrapeops_scrapy_proxy_sdk.ScrapeOpsScrapyProxySdk': 725,
 }
 
 # Enable or disable extensions
