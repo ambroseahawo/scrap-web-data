@@ -6,6 +6,7 @@
 #     https://docs.scrapy.org/en/latest/topics/settings.html
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
+import datetime
 
 BOT_NAME = "web_data"
 
@@ -21,6 +22,24 @@ SCRAPEOPS_FAKE_USER_AGENT_ENABLED = True
 SCRAPEOPS_SETTINGS_EXCLUSION_LIST = [
     'API_KEY', 'SCRAPEOPS_API_KEY'
 ]
+
+AWS_ACCESS_KEY_ID = 'AKIAQVT752G7GKHZVA76'
+AWS_SECRET_ACCESS_KEY = '132yTRGmOp/5KRhZBNLbQwUnUsnjCf+hKa5phOnH'
+
+current_time = str(datetime.datetime.now())
+
+split_time = current_time.split('.')
+split_date_time = split_time[0].split()
+file_name = 't'.join(split_date_time)
+
+FEEDS = {
+    f's3://storage-web-data/csv/{file_name}.csv': {
+        'format': 'csv',
+        'encoding': 'utf8',
+        'store_empty': False,
+        'indent': 2,
+    }
+}
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "web_data (+http://www.yourdomain.com)"
