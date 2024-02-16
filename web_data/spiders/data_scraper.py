@@ -38,7 +38,7 @@ class DataScraperSpider(scrapy.Spider):
         
         sub_heading_notification = response.xpath('//div[@class="notification "]//span[@class="notification-content"]//text()').get()
         sub_heading_info = response.xpath('//div[@class="hero__strapline teQaN "]//text()').get()
-        sub_heading = f'{sub_heading_notification}, {sub_heading_info}'
+        sub_heading = f'{sub_heading_notification}, {sub_heading_info}'.encode('ascii', 'ignore').decode('ascii')
         self.log(sub_heading)
         item["sub_heading"] = sub_heading
         
