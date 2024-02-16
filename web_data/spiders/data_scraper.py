@@ -13,7 +13,8 @@ class DataScraperSpider(scrapy.Spider):
         with open("urls.txt", 'r') as urls_file:
             all_urls = urls_file.readlines()
             for each_url in all_urls:
-                yield Request(each_url, callback=self.parse)
+                if self.allowed_domains[0] in each_url:
+                    yield Request(str(each_url).strip(), callback=self.parse)
         
     def parse(self, response):
         # link
