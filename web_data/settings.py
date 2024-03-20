@@ -13,7 +13,7 @@ BOT_NAME = "web_data"
 SPIDER_MODULES = ["web_data.spiders"]
 NEWSPIDER_MODULE = "web_data.spiders"
 
-SCRAPEOPS_API_KEY = '7afe70c3-a38a-46e9-a212-522039ce53ad'
+SCRAPEOPS_API_KEY = ''
 SCRAPEOPS_PROXY_ENABLED = True
 
 SCRAPEOPS_FAKE_USER_AGENT_ENDPOINT = 'https://headers.scrapeops.io/v1/user-agents'
@@ -23,8 +23,8 @@ SCRAPEOPS_SETTINGS_EXCLUSION_LIST = [
     'API_KEY', 'SCRAPEOPS_API_KEY'
 ]
 
-AWS_ACCESS_KEY_ID = 'AKIAQVT752G7GKHZVA76'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = ''
+AWS_SECRET_ACCESS_KEY = ''
 
 current_time = str(datetime.datetime.now())
 
